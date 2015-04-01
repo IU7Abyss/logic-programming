@@ -10,5 +10,8 @@
 ## Build tool auxiliary files:
 *.synctex.gz
 
-## For Max users
+## Markdown preview
+*.html
+
+## For Mac users
 .DS_Store
