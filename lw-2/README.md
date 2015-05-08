@@ -1,1 +1,0 @@
-sandbox: http://swish.swi-prolog.org/p/magic-kb.pl
