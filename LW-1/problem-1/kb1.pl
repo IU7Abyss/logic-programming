@@ -6,6 +6,8 @@
 % - Определить условия получения стипендии (правило) и 
 %   получить список студентов (только фамилии),
 %   которые получают стипендию.
+%
+% sandbox: http://swish.swi-prolog.org/p/lw01-kb1.pl
 
 % lastname, group, district, grade, condition
 student('Ivanov'   , 'IU7-61', 'Strogino'  , 'A', '').
