@@ -1,4 +1,8 @@
-% on swish: http://swish.swi-prolog.org/p/magic-kb.pl
+% Создать базу знаний с информацией о детях и их родителях.
+% Сформировать правило, позволяющее по имени человека определить
+% его бабушек или дедушек (бабушку, дедушку).
+%
+% sandbox: http://swish.swi-prolog.org/p/magic-kb.pl
 
 sex(paul  , male).
 sex(albert, male).
