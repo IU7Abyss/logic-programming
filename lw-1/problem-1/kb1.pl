@@ -26,7 +26,7 @@ student('Volkov'   , 'IU7-62', 'Strogino'  , 'A', 'orphan').
 student('Vasilev'  , 'IU7-63', 'Strogino'  , 'B', 'scholar').
 student('Pavlov'   , 'IU7-61', 'Ramenki'   , 'D', 'orphan').
 
-grant(Lastname, Condition):- 
+grant(Lastname, Condition) :- 
     student(Lastname, _, _, _, Condition).
 
 /** <examples>

@@ -23,7 +23,7 @@ deposit('Volkov'   , bm      , 300).
 deposit('Vasilev'  , rsb     , 7890).
 deposit('Pavlov'   , bm      , 200).
 
-depositor(Lastname, Bank, Money, MinMoney):-
+depositor(Lastname, Bank, Money, MinMoney) :-
     deposit(Lastname, Bank, Money),
     Money > MinMoney.
 
