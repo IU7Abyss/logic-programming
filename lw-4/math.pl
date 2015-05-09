@@ -1,42 +1,42 @@
-max2(X, Y, X) :-
+max(X, Y, X) :-
     X >= Y,
     !.
-max2(_, Y, Y) :- !.
+max(_, Y, Y) :- !.
 
 
 :- begin_tests(max2).
 
-test(max2, all(X == [0])) :- max2(0, 0, X).
+test(max, all(X == [0])) :- max(0, 0, X).
 
-test(max2, all(X == [1])) :- max2(0, 1, X).
-test(max2, all(X == [1])) :- max2(1, 0, X).
+test(max, all(X == [1])) :- max(0, 1, X).
+test(max, all(X == [1])) :- max(1, 0, X).
 
 :- end_tests(max2).
 
 
 
-max3(X, Y, Z, XYZ) :-
-    max2(X, Y, XY),
-    max2(XY, Z, XYZ).
+max(X, Y, Z, XYZ) :-
+    max(X, Y, XY),
+    max(XY, Z, XYZ).
 
 
 :- begin_tests(max3).
 
-test(max3, all(X == [0])) :- max3(0, 0, 0, X).
+test(max, all(X == [0])) :- max(0, 0, 0, X).
 
-test(max3, all(X == [1])) :- max3(0, 0, 1, X).
-test(max3, all(X == [1])) :- max3(0, 1, 0, X).
-test(max3, all(X == [1])) :- max3(0, 1, 1, X).
-test(max3, all(X == [1])) :- max3(1, 0, 0, X).
-test(max3, all(X == [1])) :- max3(1, 0, 1, X).
-test(max3, all(X == [1])) :- max3(1, 1, 0, X).
+test(max, all(X == [1])) :- max(0, 0, 1, X).
+test(max, all(X == [1])) :- max(0, 1, 0, X).
+test(max, all(X == [1])) :- max(0, 1, 1, X).
+test(max, all(X == [1])) :- max(1, 0, 0, X).
+test(max, all(X == [1])) :- max(1, 0, 1, X).
+test(max, all(X == [1])) :- max(1, 1, 0, X).
 
-test(max3, all(X == [2])) :- max3(0, 1, 2, X).
-test(max3, all(X == [2])) :- max3(1, 0, 2, X).
-test(max3, all(X == [2])) :- max3(0, 2, 1, X).
-test(max3, all(X == [2])) :- max3(1, 2, 0, X).
-test(max3, all(X == [2])) :- max3(2, 1, 0, X).
-test(max3, all(X == [2])) :- max3(2, 0, 1, X).
+test(max, all(X == [2])) :- max(0, 1, 2, X).
+test(max, all(X == [2])) :- max(1, 0, 2, X).
+test(max, all(X == [2])) :- max(0, 2, 1, X).
+test(max, all(X == [2])) :- max(1, 2, 0, X).
+test(max, all(X == [2])) :- max(2, 1, 0, X).
+test(max, all(X == [2])) :- max(2, 0, 1, X).
 
 :- end_tests(max3).
 
