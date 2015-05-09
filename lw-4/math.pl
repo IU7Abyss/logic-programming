@@ -49,9 +49,9 @@ fib(X, Y) :-
 
 fib_aux(1, 1, 0) :- !.
 fib_aux(X, Y1, Y2) :-
-	X1 is X - 1,
-	fib_aux(X1, Y2, Y3),
-	Y1 is Y2 + Y3.
+    X1 is X - 1,
+    fib_aux(X1, Y2, Y3),
+    Y1 is Y2 + Y3.
 
 
 :- begin_tests(fib).
