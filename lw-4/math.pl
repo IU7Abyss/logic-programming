@@ -42,17 +42,38 @@ test(max, all(X == [2])) :- max(2, 0, 1, X).
 
 
 
-fib(0, 0) :- !.
-fib(1, 1) :- !.
-fib(X, Y) :- 
-    fib_aux(X, Y, _).
+not_tail_fib(0, 0) :- !.
+not_tail_fib(1, 1) :- !.
+not_tail_fib(X, Y) :-
+    X1 is X - 1, not_tail_fib(X1, Y1),
+    X2 is X - 2, not_tail_fib(X2, Y2),
+    Y is Y1 + Y2.
 
-fib_aux(1, 1, 0) :- !.
-fib_aux(X, Y1, Y2) :-
-    X1 is X - 1,
-    fib_aux(X1, Y2, Y3),
-    Y1 is Y2 + Y3.
 
+:- begin_tests(not_tail_fib).
+
+test(not_tail_fib, all(X == [0])) :- not_tail_fib(0, X).
+test(not_tail_fib, all(X == [1])) :- not_tail_fib(1, X).
+test(not_tail_fib, all(X == [1])) :- not_tail_fib(2, X).
+test(not_tail_fib, all(X == [2])) :- not_tail_fib(3, X).
+test(not_tail_fib, all(X == [3])) :- not_tail_fib(4, X).
+test(not_tail_fib, all(X == [5])) :- not_tail_fib(5, X).
+test(not_tail_fib, all(X == [8])) :- not_tail_fib(6, X).
+test(not_tail_fib, all(X == [13])) :- not_tail_fib(7, X).
+
+:- end_tests(not_tail_fib).
+
+
+
+fib(N, F) :- 
+    fib_aux(N, 0, 1, F).
+
+fib_aux(0, A, _, A) :-!.
+fib_aux(N, A, B, F) :-
+    N1 is N - 1, 
+    Sum is A + B, 
+    fib3(N1, B, Sum, F).
+    
 
 :- begin_tests(fib).
 
@@ -66,6 +87,26 @@ test(fib, all(X == [8])) :- fib(6, X).
 test(fib, all(X == [13])) :- fib(7, X).
 
 :- end_tests(fib).
+
+
+
+not_tail_factorial(0, 1) :- !.
+not_tail_factorial(1, 1) :- !.
+not_tail_factorial(N, R) :-
+    NewN is N - 1,
+    not_tail_factorial(NewN, NewR),
+    R is N * NewR.
+
+
+:- begin_tests(not_tail_factorial).
+
+test(not_tail_factorial, all(X == [1])) :- not_tail_factorial(0, X).
+test(not_tail_factorial, all(X == [1])) :- not_tail_factorial(1, X).
+test(not_tail_factorial, all(X == [2])) :- not_tail_factorial(2, X).
+test(not_tail_factorial, all(X == [6])) :- not_tail_factorial(3, X).
+test(not_tail_factorial, all(X == [24])) :- not_tail_factorial(4, X).
+
+:- end_tests(not_tail_factorial).
 
 
 
