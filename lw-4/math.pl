@@ -72,7 +72,7 @@ fib_aux(0, A, _, A) :-!.
 fib_aux(N, A, B, F) :-
     N1 is N - 1, 
     Sum is A + B, 
-    fib3(N1, B, Sum, F).
+    fib_aux(N1, B, Sum, F).
     
 
 :- begin_tests(fib).
