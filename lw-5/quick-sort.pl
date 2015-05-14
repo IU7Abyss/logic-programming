@@ -18,6 +18,8 @@ split_by(H, [X | T], LS, [X | RS] ) :-
 
 :- begin_tests(quick_sort).
 
+test(quick_sort, [R == []]) :- quick_sort([], R).
+
 test(quick_sort, [R == [-1, 2, 3, 4, 5, 8, 10, 10, 12]]) :- quick_sort([5, 3, 4, 10, 10, 2, 8, -1, 12], R).
 
 :- end_tests(quick_sort).
