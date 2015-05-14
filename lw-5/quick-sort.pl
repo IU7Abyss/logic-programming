@@ -3,8 +3,8 @@ quick_sort(List, Sorted) :-
 
 quick_sort_aux([], Acc, Acc) :- !.
 quick_sort_aux([H | T], Acc, Sorted) :-
-	split_by(H, T, L2, L1),
-	quick_sort_aux(L1, Acc, Sorted1),
+    split_by(H, T, L2, L1),
+    quick_sort_aux(L1, Acc, Sorted1),
     quick_sort_aux(L2, [H | Sorted1], Sorted).
 
 split_by(_, [], [], []) :- !.
