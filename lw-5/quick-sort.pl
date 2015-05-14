@@ -1,5 +1,5 @@
-quick_sort(List, Sorted) :-
-    quick_sort_aux(List, [], Sorted).
+quick_sort(L, Sorted) :-
+    quick_sort_aux(L, [], Sorted).
 
 quick_sort_aux([], Acc, Acc) :- !.
 quick_sort_aux([H | T], Acc, Sorted) :-
